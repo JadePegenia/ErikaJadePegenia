@@ -6,32 +6,26 @@
         <title>Jade's Portfolio</title>
     </head>
     <body style="height: inherit;">
-    <nav>
-        <div class="nav">
-            <h1 style="font-size: 50px; letter-spacing: 10%; ">EJ</h1>
-        </div>
-        <div class = "links"> 
-            <div>
-                <a class ="link"href="#Home">Home</a> 
+ 
+        <nav>
+            <div class="nav">
+                <h1 class="logo">EJ</h1>
             </div>
-            <div>
-                <a class ="link"href="#About">About</a> 
+            <div class="links"> 
+                <a class="link" href="#Home">Home</a>
+                <a class="link" href="#About">About</a>
+                <a class="link" href="#Projects">Projects</a>
+                <a class="link" href="#Contact">Contact</a>
             </div>
-            <div>
-                <a class ="link"href="#Project">Projects</a> 
-            </div>
-            <div>
-                <a class ="link"href="#Contact">Contact</a> 
-            </div>
-        </div>
-    </nav>
-    <div id="Home" style="text-align: center;">
+        </nav>
+
+    <div id="Home" style=" height: 100vh; display: flex; justify-content: center; align-items: center; width: 100vw; ">
         <div class="grid-container">
             <!-- First Grid Item with Text -->
             <div class="grid-item" style="background-image: url('0.jpg');">
-                <div style="margin: 2%; padding-top: 10%;">
-                    <h1 style="color: azure; font-size: 50px; font-family: Arial, Helvetica, sans-serif; letter-spacing: 5px;">Erika Jade Pegenia</h1>
-                    <p style="font-family: Arial, Helvetica, sans-serif; font-size: 25px; word-spacing:10px; color:azure">
+                <div class="content">
+                    <h1 style="color: white;  font-family: Arial, Helvetica, sans-serif; font-size: 25px; letter-spacing: 5px;">Erika Jade Pegenia</h1>
+                    <p style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; word-spacing: 5px; color: #ebd469">
                         a web designer and developer focused on <br>
                         creating visually appealing, user-friendly websites.<br>
                         I transform ideas into impactful digital experiences.
@@ -40,7 +34,9 @@
             </div>
     
             <!-- Second Grid Item -->
-            <div class="grid-item" style="background-image: url('1.jpg');"></div>
+            <div class="grid-item" style="background-image: url('1.jpg');">
+                <img src="main.jpg" class="centered-image">
+            </div>
     
             <!-- Third Grid Item -->
             <div class="grid-item" style="background-image: url('2.jpg');"></div>
@@ -50,7 +46,7 @@
      
    
 
-    <div class="project" id="Project" style="height: 100%;  margin: 5%;  ">
+    <div class="project" id="Projects" style="height: 100%;  margin: 5%;  ">
         <div style="text-align: center; padding-top: 2%;"><h1>Works</h1></div>
         <div style="display: grid; grid-template-columns: auto auto auto;text-align: center; ">
 
