@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="Stylesheet" href="Grade.css"/>
+    <script src ="Grade.js"></script>
+    <title>Grade Calculator</title>
+</head>
+<body>
+    <header>
+        <h1> Grade Calculator </h1>
+    </header>
+    <div class="Content">
+        <div id="name">
+            <label for = "Name"> Enter Name: </label>
+            <input type="text" id = "Name"><br>
+        </div>
+
+        <div id="Column">
+            <div class ="Grades">
+                <table>
+                <tr>
+                <th colspan="2">Enter Scores for the Following:</th>
+                </tr>
+                <tr>
+                   <td><label for = "score1"> Major Exam: </label></td> 
+                   <td><input type="Number" id = "score1"></td> 
+                </tr>
+                <tr>
+                    <td><label for = "score2"> Quiz: </label></td>
+                    <td><input type="Number" id = "score2"></td>
+                </tr>
+                <tr>
+                    <td><label for = "score3"> Seatwork: </label></td>
+                    <td><input type="Number" id = "score3"></td>
+                </tr>
+                <tr>
+                    <td><label for = "score4"> Recitation: </label></td>
+                    <td><input type="Number" id = "score4"></td>
+                </tr>
+                <tr>
+                    <td><label for = "score5"> Attendance: </label></td>
+                    <td><input type="Number" id = "score5"></td>
+                </tr>
+                </table>
+                
+            </div>
+
+            <div class="Rubrics">
+                <table>
+                    <tr>
+                    <th colspan="2">Grading Rubrics</th>
+                    </tr>
+                    <tr>
+                    <td>Major Exam</td>
+                    <td>40%</td>
+                    </tr>
+                    <tr>
+                        <td>Quiz</td>
+                        <td>30%</td>
+                    </tr>
+                    <tr>
+                        <td>Seatwork</td>
+                        <td>10%</td>
+                    </tr>
+                    <tr>
+                        <td>Recitation</td>
+                        <td>10%</td>
+                    </tr>
+                    <tr>
+                        <td>Attendance</td>
+                        <td>10%</td>
+                    </tr>
+                
+                </table>
+            </div>
+        </div>
+        <div class="buttons">
+        <button onclick="Calculate()">Calculate</button>
+        <button onclick="Reset()">Reset</button>
+        </div>
+        
+            <div id="result">
+                <p>Result:</p>
+                <p id="Statement"></p>
+                <p id="finalgrade"></p>
+                <p id="rate"></p>
+            </div>
+
+            
+    </div>
+    <footer>
+        <p> Made by: Erika Jade Pegenia 2024</p>
+    </footer>
+    
+
+
+</body>
+</html>
