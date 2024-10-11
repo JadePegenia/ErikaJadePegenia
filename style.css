@@ -20,7 +20,15 @@ nav {
     color: #ebd469;
     font-weight: bold;
 }
+.prj_img{
+    margin: 5%;
+    max-width: 75%;
+    box-shadow:  1px 1px 1px 1px lightgray;
 
+}
+.prj_card{
+    box-shadow:  3px 3px 3px 3px lightgray;
+}
 /* Link Styling */
 .links {
     display: flex;
