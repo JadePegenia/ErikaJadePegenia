@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title> Register and Login Form </title>
+    
+</head>
+<body  style="height: inherit;">
+    <div style="display: grid; grid-template-columns: auto auto;text-align: center; gap:20px">
+     <div style="background-color: rgba(240, 248, 255, 0.549); padding: 10%;"> 
+        <h3>Create an Account</h3>
+        <form id="register" method="POST">
+            <label for="uname" style="font-size: 12px;">Username:</label><br>
+            <input type="text" id="name" name="name"style="font-size: 12px; width:25% height:10px;"><br>
+            <label for="pw" style="font-size: 12px;">Password:</label><br>
+            <input type="password" id="pw" name="pw"style="font-size: 12px; width:25% height:10px"><br>
+            <label for="cpw" style="font-size: 12px;">Confirm Password:</label><br>
+            <input type="password" id="cpw" name="cpw"style="font-size: 12px; width:25% height:10px;"><br>
+            <br>
+            <button type="submit" id="r" class=Buttons >Register</button>
+        </form> 
+    </div>
+    
+    <div style="background-color: rgba(240, 248, 255, 0.549); padding: 10%;">
+    <h3>Login</h3>
+    <form id = "login" method ="POST">
+        <label for = "username" style="font-size: 12px;">Username: </label> <br>
+        <input type = "text" id="username" name="username"style="font-size: 12px; width:25% height:10px;"><br>
+        <label for = "password" style="font-size: 12px;" >Password: </label> <br>
+        <input type ="password" id="password" name="password" style="font-size: 12px; width:25% height:10px;"><br><br>
+        <button type="submit" class=Buttons>Log In</button>
+    </form>
+    </div>
+    </div>
+    <div>
+    <footer style="text-align: center;">
+        <p>&copy; Erika Jade 2024</p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src ="hndi.js"></script>
+</body>
+
+</html>
