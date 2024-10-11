@@ -4,9 +4,9 @@ body{
 }
 nav{
     display: grid;
-    grid-template-columns: 25% 50% 25%;
+    grid-template-columns: 30% 70%;
     grid-gap: 10px;
-    background-color: aliceblue;
+    background-color: #ac663e;
     padding: 1%;
     text-align: center;
 }
