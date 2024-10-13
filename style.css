@@ -6,16 +6,19 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1% 1%;
     background-color: #672901; 
-    width: 100%;
     top: 0; 
-    z-index: 100; 
+    z-index: 1000; 
+    overflow: hidden;
+    position: fixed;
+    top: 0; 
+    width: 100%;
 }
 /* Logo Styling */
 .logo {
-    font-size: 40px;
-    padding-left: 10%;
+    font-size: auto;
+    
+    padding-left: 100%;
     letter-spacing: 10%;
     color: #ebd469;
     font-weight: bold;
@@ -45,8 +48,8 @@ nav {
 }
 
 .link:hover {
-    background-color: #555; /* Background color on hover */
-    border-radius: 5px; /* Rounded corners */
+    background-color: #8c4110e8; /* Background color on hover */
+    border-radius: 2px; /* Rounded corners */
 }
 body, html {
     height: 100%;
@@ -82,8 +85,8 @@ body, html {
     margin-top: 0;
 }
 .centered-image {
-    max-width: 100%;
-    max-height: 75%;
+    width: auto;
+    height: 65%;
     position: absolute;
     border: #ebd469 dotted 7px;
     border-radius: 10%;
