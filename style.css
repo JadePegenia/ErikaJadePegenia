@@ -29,8 +29,13 @@ nav {
     box-shadow:  1px 1px 1px 1px lightgray;
 
 }
+.resp{
+    display: grid;
+    grid-template-columns: auto auto;
+}
 .prj_card{
     box-shadow:  3px 3px 3px 3px lightgray;
+    
 }
 /* Link Styling */
 .links {
@@ -57,7 +62,7 @@ body, html {
   }
   .grid-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+    grid-template-columns: repeat(3, auto); /* Three equal columns */
     width: 100%; /* Full width of section */
     height: 100%; /* Full height of section */
 }
@@ -93,4 +98,68 @@ body, html {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+.aboutme{
+    display: grid;
+    grid-template-columns: 40% auto;
+    padding: 10%;
+    
+    gap: 5%;
+}
+.paper{
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 10%;
+    
+}
+.bigfont{
+    font-size: 120%;
+}
+.contact{
+    display: grid;
+    grid-template-columns:30% auto;
+    padding: 2%; 
+    gap: 10%;
+}
+
+.project{
+    padding-bottom: 10%;
+    padding:5%;
+}
+
+@media screen and (max-width: 480px) {
+    .centered-image{
+        width: auto;
+        height: 90%;
+    }
+
+    .links {
+        padding-right: 20%;
+    }
+
+    .grid-container {
+        display:list-item;
+        height: 35%;
+        margin-top: -150%;
+    }
+    .aboutme{
+        display: inline;
+    }
+    .paper{
+        margin-left: 10%;
+        margin-right: 10%;
+        margin-bottom: 5%;
+        padding: 5%;
+        font-size: 100%;
+    }
+    .contact{
+        display: inline;
+    }
+    .bigfont{
+        
+        font-size: 100%;
+    }
+
+    
+    
 }
