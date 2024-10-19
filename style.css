@@ -112,6 +112,10 @@ body, html {
     margin-bottom: 10%;
     
 }
+.proj{
+    display: grid; 
+    grid-template-columns: 33% 33% 33%;
+}
 .bigfont{
     font-size: 120%;
 }
@@ -159,7 +163,8 @@ body, html {
         
         font-size: 100%;
     }
-
-    
+    .proj{
+        display: inline;
+    }
     
 }
