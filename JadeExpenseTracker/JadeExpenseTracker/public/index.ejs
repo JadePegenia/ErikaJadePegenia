@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <title>Expense Tracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="\css\styles.css">
+  </head>
+
+    <body>
+      <div id="nav">
+        <ul>
+          
+         <li><span style="cursor:pointer; float:right; margin-right: 20px;"  onclick="openNav()">&#9776;</span></li> 
+
+     
+          <li><b>Expense Tracker</b></li>
+          <li id="date"><%= today %></li>
+        </ul>
+        </div>
+      </div>
+
+      <div id="main">
+      
+        <div>
+        <form method="post" action="/save">
+            <li id="budget">
+              <label for ="Insertbudget" >Insert budget</label>
+              <input type="number" name="InsertBudget"  required>
+            <button type="submit">Add</button>
+        </form>
+        </div>
+        <div id="mySidenav"class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <a href="#">Home</a>
+          <a href="#">Expense History</a>
+          <a href="#">Savings History</a>
+        </div>
+      </div>
+      <form id="Expensetracker" method="post" action="/submit">
+        <table border="1">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Remaining Pocket Money</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for (const [date, remaining] of Object.entries(remainingPocketMoneyByDate)) { %>
+                <tr>
+                  <td><%= date %></td>
+                  <td><%= remaining.toFixed(2) %></td> <!-- Format to 2 decimal places -->
+                </tr>
+              <% } %>
+            </tbody>
+          </table>
+          <h3></h3>
+
+      </div>
+
+      <div>
+        <p style="font-size: 15p;">Expenses Transaction</p>
+
+        <label for="description">Description</label>
+        <input type="text" id="Description" name="Description">
+
+        <label for = "amount">Amount</label>
+        <input type="number" id="Amount" name="Amount">
+
+        <label for="PaymentMethod">Payment Method</label>
+        <select name="PaymentMethod" id="PaymentMethod">
+            <option value="E-Wallet">E-Wallet</option>
+            <option value="Cash">Cash</option>
+            <option value="Credit Card">Credit Card</option>
+            <option value="Debit Card">Debit Card</option>
+          </select>
+        <label for="Category">Category</label> 
+          <select name="Category" id="Category">
+            <option value="Food">Food</option>
+            <option value="Transportation">Transportation</option>
+            <option value="Utilities">Shopping</option>
+            <option value="Studies">Utilities</option>
+            <option value="Others">Others</option>
+          </select>
+        <button type="submit">Submit</button>
+
+      </div>
+
+
+
+
+
+
+        <h2>Pocket Money for Today</h2>
+        
+        
+        
+        
+        
+
+        </form>
+        <div id = "TransactionDetails">
+        <h2>Transaction History</h2>
+        <table>
+            <th>Date track</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Amount</th>
+            <th>PaymentMethod</th>
+
+            <% transactiondetail.forEach(log => { %>
+                <tr>
+                    <td><%= new Date(new Date(log.Date).getTime() + (8 * 60 * 60 * 1000)).toISOString().slice(11, 16) %></td>
+                    <td><%= log.Description %></td>
+                    <td><%= log.Category %></td>
+                    <td><%= log.Amount %></td>
+                    <td><%= log.PaymentMethod %></td>
+                </tr>
+            <% }); %>
+        </table>
+        </div>
+
+        <div id ="total">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Total Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for (let date in totalsByDate) { %>
+                        <tr>
+                            <td><%= date %></td>
+                            <td><%= totalsByDate[date].toFixed(2) %></td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Month</th>
+                        <th>Total Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for (let date in totalsByMonth) { %>
+                        <tr>
+                            <td><%= date %></td>
+                            <td><%= totalsByMonth[date].toFixed(2) %></td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Year</th>
+                        <th>Total Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for (let date in totalsByYear) { %>
+                        <tr>
+                            <td><%= date %></td>
+                            <td><%= totalsByYear[date].toFixed(2) %></td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>    
+        </div>
+        <div>
+            <table>
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Category</th>
+                    <th>Total Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% for (const [date, categories] of Object.entries(totalsByDateAndCategory)) { %>
+                    <% for (const [category, total] of Object.entries(categories)) { %>
+                      <tr>
+                        <td><%= date %></td>
+                        <td><%= category %></td>
+                        <td><%= total.toFixed(2) %></td>
+                      </tr>
+                    <% } %>
+                  <% } %>
+                </tbody>
+              </table> 
+
+              <table>
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Category</th>
+                    <th>Total Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% for (const [date, categories] of Object.entries(totalsByMonthAndCategory)) { %>
+                    <% for (const [category, total] of Object.entries(categories)) { %>
+                      <tr>
+                        <td><%= date %></td>
+                        <td><%= category %></td>
+                        <td><%= total.toFixed(2) %></td>
+                      </tr>
+                    <% } %>
+                  <% } %>
+                    </tbody> 
+              </table>
+
+              <table>
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Category</th>
+                    <th>Total Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% for (const [date, categories] of Object.entries(totalsByYearAndCategory)) { %>
+                    <% for (const [category, total] of Object.entries(categories)) { %>
+                      <tr>
+                        <td><%= date %></td>
+                        <td><%= category %></td>
+                        <td><%= total.toFixed(2) %></td>
+                      </tr>
+                    <% } %>
+                  <% } %>
+                    </tbody> 
+              </table>
+
+              <table>
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Payment Method</th>
+                    <th>Total Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% for (const [date, categories] of Object.entries(totalsByDateAndPayment)) { %>
+                    <% for (const [category, total] of Object.entries(categories)) { %>
+                      <tr>
+                        <td><%= date %></td>
+                        <td><%= category %></td>
+                        <td><%= total.toFixed(2) %></td>
+                      </tr>
+                    <% } %>
+                  <% } %>
+                    </tbody> 
+              </table>
+
+              <table>
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Payment Method</th>
+                    <th>Total Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% for (const [date, categories] of Object.entries(totalsByMonthAndPayment)) { %>
+                    <% for (const [category, total] of Object.entries(categories)) { %>
+                      <tr>
+                        <td><%= date %></td>
+                        <td><%= category %></td>
+                        <td><%= total.toFixed(2) %></td>
+                      </tr>
+                    <% } %>
+                  <% } %>
+                    </tbody> 
+              </table>
+
+              <table>
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Payment Method</th>
+                    <th>Total Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% for (const [date, categories] of Object.entries(totalsByYearAndPayment)) { %>
+                    <% for (const [category, total] of Object.entries(categories)) { %>
+                      <tr>
+                        <td><%= date %></td>
+                        <td><%= category %></td>
+                        <td><%= total.toFixed(2) %></td>
+                      </tr>
+                    <% } %>
+                  <% } %>
+                    </tbody> 
+              </table>
+        </div>
+        </div>
+        <script>
+          function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+          }
+      
+          function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+          }
+      
+          // Automatically close the sidebar when any link is clicked
+          document.querySelectorAll('.sidenav a').forEach(link => {
+            link.addEventListener('click', () => {
+              closeNav();
+            });
+          });
+        </script> 
+    </body>
+    
+</html>
